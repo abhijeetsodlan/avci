@@ -1,65 +1,95 @@
 import Image from "next/image";
+import Link from "next/link";
+import { CountdownTimer } from "@/components/CountdownTimer";
+import { VisitorCounter } from "@/components/VisitorCounter";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="pb-12">
+      <section>
+        <div className="rounded border border-[#E5E7EB] bg-white shadow-sm">
+          <div className="bg-[#FF9933] px-5 py-3 text-xs font-semibold uppercase tracking-[0.5em] text-white">
+            <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <span className="text-sm font-bold uppercase tracking-[0.15em] leading-tight md:text-lg">
+                प्रेम प्रदर्शन सप्ताह के समापन तक शेष समय:
+              </span>
+              <CountdownTimer inline />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 px-5 py-8 md:grid-cols-[0.9fr_1.4fr_0.9fr]">
+            <div className="order-2 flex items-start justify-start md:order-1">
+              <div className="w-full rounded border border-[#E5E7EB] bg-white p-2 shadow">
+                <Image
+                  src="/images/images.jfif"
+                  width={500}
+                  height={500}
+                  alt="Satirical government seal"
+                  className="h-[320px] w-full rounded object-cover"
+                  priority
+                />
+                <div className="mt-2 space-y-1 text-center">
+                 
+                  <p className="text-sm font-semibold uppercase tracking-tight text-black font-serif">
+                    नरेंद्र मोदी (सिंगल)
+                  </p>
+                  <p className="text-[10px] uppercase tracking-tight text-[#FF9933] font-serif">
+                   अध्यक्ष, आत्मनिर्भर प्रेम प्रकोष्ठ
+                  </p>
+                   <p className="text-xs uppercase tracking-tight text-gray-500 font-serif">
+                   Chairman, Self-Reliant Love Cell
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="order-1 flex flex-col items-center justify-center space-y-2 text-center md:order-2">
+              <p className="text-2xl font-semibold uppercase tracking-tight leading-snug text-black md:text-3xl whitespace-nowrap font-serif">
+                Hum Do Nahi.
+              </p>
+              <p className="text-2xl font-semibold uppercase tracking-tight leading-snug text-black md:text-3xl whitespace-nowrap font-serif">
+                Hum Ek Hi Theek Hai
+              </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#FF9933]">
+                Atmanirbhar in Love Affairs
+              </p>
+              <div className="mt-6 flex flex-col items-center gap-4">
+                <VisitorCounter />
+                <Link
+                  href="/certificate"
+                  className="rounded border border-[#FF9933] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-black transition hover:bg-[#FF9933] hover:text-white"
+                >
+                  Get Your Certificate
+                </Link>
+              </div>
+            </div>
+
+            <div className="order-3 flex items-end justify-end">
+              <div className="w-full rounded border border-[#E5E7EB] bg-white p-2 shadow">
+                <Image
+                  src="/images/rahul.jfif"
+                  width={500}
+                  height={500}
+                  alt="AVCI guardian"
+                  className="h-[320px] w-full rounded object-cover"
+                  priority
+                />
+                <div className="mt-2 space-y-1 text-center">
+                  <p className="text-[12px] font-semibold uppercase tracking-tight text-black font-serif">
+                    राहुल गांधी (सिंगल)  
+                  </p>
+                  <p className="text-[10px] uppercase tracking-tight text-[#FF9933] font-serif">
+                     संयुक्त सचिव, अविवाहित कल्याण विभाग 
+                  </p>
+                  <p className="text-[10px] uppercase tracking-tight text-gray-500 font-serif">
+                    Secretary, Department of Unmarried Welfare
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
     </div>
   );
 }

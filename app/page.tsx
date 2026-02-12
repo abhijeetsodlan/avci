@@ -29,15 +29,15 @@ export default function Home() {
                   className="h-[320px] w-full rounded object-cover"
                   priority
                 />
-                <div className="mt-2 space-y-1 text-center">
+                <div className="mt-3 space-y-2 text-center">
                  
-                  <p className="text-sm font-semibold uppercase tracking-tight text-black font-serif">
+                  <p className="text-base font-semibold uppercase tracking-tight text-black md:text-lg font-serif">
                     नरेंद्र मोदी (सिंगल)
                   </p>
-                  <p className="text-[10px] uppercase tracking-tight text-[#FF9933] font-serif">
+                  <p className="text-sm uppercase tracking-tight text-[#FF9933] md:text-base font-serif">
                    अध्यक्ष, आत्मनिर्भर प्रेम प्रकोष्ठ
                   </p>
-                   <p className="text-xs uppercase tracking-tight text-gray-500 font-serif">
+                   <p className="text-sm uppercase tracking-tight text-gray-500 md:text-base font-serif">
                    Chairman, Self-Reliant Love Cell
                   </p>
                 </div>
@@ -76,14 +76,14 @@ export default function Home() {
                   className="h-[320px] w-full rounded object-cover"
                   priority
                 />
-                <div className="mt-2 space-y-1 text-center">
-                  <p className="text-[12px] font-semibold uppercase tracking-tight text-black font-serif">
+                <div className="mt-3 space-y-2 text-center">
+                  <p className="text-base font-semibold uppercase tracking-tight text-black md:text-lg font-serif">
                     राहुल गांधी (सिंगल)  
                   </p>
-                  <p className="text-[10px] uppercase tracking-tight text-[#FF9933] font-serif">
+                  <p className="text-sm uppercase tracking-tight text-[#FF9933] md:text-base font-serif">
                      संयुक्त सचिव, अविवाहित कल्याण विभाग 
                   </p>
-                  <p className="text-[10px] uppercase tracking-tight text-gray-500 font-serif">
+                  <p className="text-sm uppercase tracking-tight text-gray-500 md:text-base font-serif">
                     Secretary, Department of Unmarried Welfare
                   </p>
                 </div>

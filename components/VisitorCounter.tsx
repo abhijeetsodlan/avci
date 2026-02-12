@@ -2,10 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-const getRandomStart = () => Math.floor(Math.random() * (5000 - 1000 + 1)) + 1000;
-
 export const VisitorCounter = () => {
-  const [count, setCount] = useState(() => getRandomStart());
+  const [count, setCount] = useState(1000);
 
   useEffect(() => {
     const interval = setInterval(() => {

@@ -5,7 +5,6 @@ export const Header = () => {
   const links = [
     { href: "/", label: "Home" },
     { href: "/notice-board", label: "Notice Board" },
-    { href: "/dard", label: "Dard Ki Deewar" },
     { href: "/certificate", label: "Get Certificate" },
     { href: "/helpline", label: "Emotional Helpline" },
   ];

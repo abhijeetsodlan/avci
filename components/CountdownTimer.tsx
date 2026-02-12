@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const getTargetDate = () => {
   const now = new Date();
@@ -71,15 +71,21 @@ const InlineTimer = ({
 );
 
 export const CountdownTimer = ({ inline }: CountdownTimerProps) => {
-  const target = useMemo(() => getTargetDate(), []);
-  const [remaining, setRemaining] = useState(() => calculateRemaining(target));
+  const [remaining, setRemaining] = useState({
+    total: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
 
   useEffect(() => {
+    const target = getTargetDate();
     const interval = setInterval(() => {
       setRemaining(calculateRemaining(target));
     }, 1000);
     return () => clearInterval(interval);
-  }, [target]);
+  }, []);
 
   if (inline) {
     return (

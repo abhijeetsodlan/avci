@@ -121,8 +121,8 @@ export const BreakupModalTrigger = () => {
           <div className="space-y-4">
             <div className="mt-6 text-center text-gray-800 text-lg font-semibold">
               {selectedGender === "male"
-                ? "She left you for someone else."
-                : "He left you for someone else."}
+                ? "She chose someone else over you."
+                : "He chose someone else over you."}
               <br />
               Game over, loser.
             </div>

@@ -9,10 +9,11 @@ export const Header = () => {
     { href: "/certificate", label: "Get Certificate" },
     { href: "/helpline", label: "Emotional Helpline" },
   ];
+  const marqueeLinks = [...links, ...links];
 
   return (
     <header className="sticky top-0 z-50 border-b border-[#E5E7EB] bg-white">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-4 py-2 md:flex-row md:items-center md:justify-between">
+      <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-2 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
           <div className="flex h-14 w-14 items-center justify-center rounded-full border border-[#E5E7EB] bg-white">
             <div className="h-10 w-10 overflow-hidden rounded-full">
@@ -38,7 +39,7 @@ export const Header = () => {
 
         <nav
           aria-label="Primary"
-          className="flex w-full flex-nowrap justify-center gap-4 overflow-x-auto whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.3em]"
+          className="hidden w-full flex-nowrap justify-center gap-4 whitespace-nowrap text-[10px] font-semibold uppercase tracking-[0.3em] md:flex"
         >
           {links.map((link) => (
             <Link
@@ -50,6 +51,25 @@ export const Header = () => {
             </Link>
           ))}
         </nav>
+
+        <div className="md:hidden w-full">
+          <div
+            className="relative overflow-hidden rounded-full border border-[#FF9933] bg-[#FF9933] px-4 py-2 shadow-lg"
+            aria-label="Featured actions"
+          >
+            <div className="gov-marquee flex min-w-[200%] items-center gap-6 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.35em] text-white">
+              {marqueeLinks.map((link, index) => (
+                <Link
+                  key={`${link.href}-${index}`}
+                  href={link.href}
+                  className="rounded px-2 text-white transition-colors hover:text-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );

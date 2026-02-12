@@ -32,7 +32,7 @@ export const Footer = () => {
             <span className="text-[10px] tracking-normal md:text-[11px]">
               निर्मित एवं विकसित:
               <br />
-              अभिजीत सोडलन – गर्वित सिंगल
+              अभिजीत सोडलान – गर्वित सिंगल
             </span>
           </a>
         </div>

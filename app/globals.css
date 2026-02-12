@@ -22,3 +22,18 @@ body {
 a {
   color: inherit;
 }
+
+@layer utilities {
+  @keyframes gov-marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .gov-marquee {
+    animation: gov-marquee 11s linear infinite;
+  }
+}

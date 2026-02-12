@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CountdownTimer } from "@/components/CountdownTimer";
+import { BreakupModalTrigger } from "@/components/BreakupModalTrigger";
 import { VisitorCounter } from "@/components/VisitorCounter";
 
 export default function Home() {
@@ -61,6 +62,7 @@ export default function Home() {
                 >
                   Get Your Certificate
                 </Link>
+                <BreakupModalTrigger />
               </div>
             </div>
 

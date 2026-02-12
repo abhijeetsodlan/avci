@@ -51,19 +51,27 @@ const responseOptions = [
   },
 ];
 
+const staticVotePercentages: Record<(typeof responseOptions)[number]["key"], number> = {
+  stable: 16,
+  slight: 21,
+  serious: 27,
+  ex: 36,
+};
+
 export const HelplineSection = () => {
   const [openModal, setOpenModal] = useState<null | (typeof helplineButtons)[number]["key"]>(null);
-  const [selectedResponse, setSelectedResponse] = useState(responseOptions[0].key);
+  const [selectedResponse, setSelectedResponse] = useState<null | (typeof responseOptions)[number]["key"]>(null);
   const [responseVisible, setResponseVisible] = useState(true);
 
   useEffect(() => {
+    if (!selectedResponse) return;
     setResponseVisible(false);
     const timer = setTimeout(() => setResponseVisible(true), 80);
     return () => clearTimeout(timer);
   }, [selectedResponse]);
 
   const activeResponse = useMemo(
-    () => responseOptions.find((option) => option.key === selectedResponse) ?? responseOptions[0],
+    () => responseOptions.find((option) => option.key === selectedResponse) ?? null,
     [selectedResponse]
   );
 
@@ -121,28 +129,53 @@ export const HelplineSection = () => {
         </p>
         <h2 className="text-xl font-bold text-black">📊 भावनात्मक क्षति मापक यंत्र</h2>
         <label className="text-sm font-semibold uppercase tracking-[0.3em] text-gray-500">
-          अपनी स्थिति चुनें
+          अपनी स्थिति पर वोट करें
         </label>
-        <div className="mt-2 flex w-full max-w-sm items-center rounded-lg border border-[#E5E7EB] bg-white px-3 py-2 shadow-sm focus-within:border-[#FF9933]">
-          <select
-            value={selectedResponse}
-            onChange={(event) => setSelectedResponse(event.target.value)}
-            className="w-full bg-transparent text-sm font-semibold uppercase tracking-[0.3em] text-gray-700 focus:outline-none"
+        <div className="grid gap-3 md:grid-cols-2">
+          {responseOptions.map((option) => {
+            const percentage = staticVotePercentages[option.key];
+            const isSelected = selectedResponse === option.key;
+
+            return (
+              <button
+                key={option.key}
+                type="button"
+                onClick={() => setSelectedResponse(option.key)}
+                className={`rounded-lg border px-4 py-3 text-left transition duration-200 ${
+                  isSelected
+                    ? "border-[#FF9933] bg-[#fff7ed]"
+                    : "border-[#E5E7EB] bg-white hover:border-[#FFB25C] hover:bg-[#fffaf4]"
+                }`}
+              >
+                <p className="text-sm font-bold text-black">{option.label}</p>
+                {selectedResponse ? (
+                  <div className="mt-3 space-y-2">
+                    <div className="h-2 w-full overflow-hidden rounded-full bg-[#ffe4c7]">
+                      <div
+                        className="h-full rounded-full bg-[#FF9933] transition-all duration-500"
+                        style={{ width: `${percentage}%` }}
+                      />
+                    </div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#9a3412]">
+                      {percentage}% votes
+                    </p>
+                  </div>
+                ) : (
+                  <p className="mt-2 text-xs text-gray-500">Tap to vote</p>
+                )}
+              </button>
+            );
+          })}
+        </div>
+        {activeResponse && (
+          <div
+            key={activeResponse.key}
+            className="rounded-lg border border-[#FF9933] bg-[#fff7ed] px-4 py-3 text-sm text-[#b45309] transition-all duration-300"
+            style={{ opacity: responseVisible ? 1 : 0 }}
           >
-            {responseOptions.map((option) => (
-              <option key={option.key} value={option.key} className="bg-white text-black">
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div
-          key={activeResponse.key}
-          className="rounded-lg border border-[#FF9933] bg-[#fff7ed] px-4 py-3 text-sm text-[#b45309] transition-all duration-300"
-          style={{ opacity: responseVisible ? 1 : 0 }}
-        >
-          {activeResponse.description}
-        </div>
+            {activeResponse.description}
+          </div>
+        )}
       </div>
 
       <Modal

@@ -18,7 +18,7 @@ export const notices = [
   {
     id: 3,
     circularNo: "AVCI/CRINGE/003",
-    subject: "Posting 14 Stories on 14th February",
+    subject: "Posting 14 Relationship Stories in One Day",
     status: "National Cringe Emergency",
     advisory: "Avoid social media platforms for 24 hours.",
   },

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 
 export const CertificateSection = () => {
-  const [name, setName] = useState("Valentine Survivor");
+  const [name, setName] = useState("Independent Survivor");
   const [yearsSingle, setYearsSingle] = useState("1");
   const formattedDate = useMemo(() => {
     return new Date().toLocaleDateString("en-GB", {
@@ -14,7 +14,7 @@ export const CertificateSection = () => {
   }, []);
 
   const handleGenerate = () => {
-    setName((prev) => prev.trim() || "Valentine Survivor");
+    setName((prev) => prev.trim() || "Independent Survivor");
   };
 
   return (
@@ -56,9 +56,9 @@ export const CertificateSection = () => {
         <div className="rounded border-2 border-[#FF9933] px-5 py-6 text-center text-sm tracking-[0.2em]">
           <p className="text-xs uppercase tracking-[0.4em] text-gray-500">Certificate of Resilience</p>
           <p className="mt-6 text-sm">This is to certify that</p>
-          <p className="mt-2 text-2xl font-bold text-[#0a0a0a]">{name || "Valentine Survivor"}</p>
+          <p className="mt-2 text-2xl font-bold text-[#0a0a0a]">{name || "Independent Survivor"}</p>
           <p className="mt-1 text-sm">Years Single: {yearsSingle || "1"}</p>
-          <p className="mt-2 text-sm">has officially survived Valentine’s Week</p>
+          <p className="mt-2 text-sm">has officially stayed emotionally independent this season</p>
           <p className="text-sm">under the supervision of the</p>
           <p className="text-sm font-semibold">Anti-Valentine Commission of India.</p>
           <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[#555]">Date: {formattedDate}</p>

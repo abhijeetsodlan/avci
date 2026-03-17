@@ -12,7 +12,7 @@ export default function Home() {
           <div className="bg-[#FF9933] px-5 py-3 text-xs font-semibold uppercase tracking-[0.5em] text-white">
             <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
               <span className="text-sm font-bold uppercase tracking-[0.15em] leading-tight md:text-lg">
-                प्रेम प्रदर्शन सप्ताह के समापन तक शेष समय:
+                Time until next anti-cringe campaign window:
               </span>
               <CountdownTimer inline />
             </div>
